@@ -16,8 +16,8 @@ npm start
 
 ## Сборка для публикации
 
-Загрузите на GitHub Pages, Netlify, Cloudflare Pages или любой хостинг статики: `index.html`, `Vladimir_Putin_-_Molodec_politik_lider_i_borec_72438381.mp3`, `dev-secrets.js`, `dev-secrets.example.js`, `LICENSE`, при желании `package.json` и этот `README.md`. В `dev-secrets.js` по умолчанию только комментарии — свой хэш для чит-меню можно задать локально по подсказкам в файле.
+Загрузите на GitHub Pages, Netlify, Cloudflare Pages или любой хостинг статики: `index.html`, `Vladimir_Putin_-_Molodec_politik_lider_i_borec_72438381.mp3`, `Slava_KPSS_Pyrokinesis_-_RKN_74532024.mp3`, `dev-secrets.js`, `dev-secrets.example.js`, `LICENSE`, при желании `package.json` и этот `README.md`. В `dev-secrets.js` по умолчанию только комментарии — свой хэш для чит-меню можно задать локально по подсказкам в файле.
 
 ## Лицензия
 
-Код — MIT, см. `LICENSE`. Фоновый трек «Молодец, политик, лидер и борец» (Владимир Путин) вставлен авторами игры по своей инициативе, без отдельного договора с правообладателем; для прозрачности указаны название, исполнитель и ссылка на страницу в сервисе (https://rus.hitmotop.com/song/72438381). Права на музыку остаются у правообладателей — см. `LICENSE`.
+Код — MIT, см. `LICENSE`. Фоновая музыка — плейлист из двух треков: «Молодец, политик, лидер и борец» (Владимир Путин, https://rus.hitmotop.com/song/72438381) и «РКН» (Слава КПСС, Pyrokinesis, https://rus.hitmotop.com/song/74532024). Треки добавлены авторами по своей инициативе; права на музыку остаются у правообладателей — см. `LICENSE`.

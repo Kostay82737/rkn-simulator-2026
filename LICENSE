@@ -24,14 +24,17 @@ SOFTWARE.
 
 Third-party assets (not covered by the MIT license above)
 
-The audio file Vladimir_Putin_-_Molodec_politik_lider_i_borec_72438381.mp3 is the
-track «Молодец, политик, лидер и борец» (Владимир Путин). It was included by the
-project authors on their own initiative, without a separate agreement with the
-rights holder; attribution is provided in good faith (track title, artist name,
-and a public listing URL: https://rus.hitmotop.com/song/72438381). Copyright and
-related rights remain with the author and/or their licensees. The file is bundled
-for use as the in-game soundtrack; redistribution of the audio may require separate
-permission from the rights holder.
+The project bundles a two-track background playlist:
+1) Vladimir_Putin_-_Molodec_politik_lider_i_borec_72438381.mp3 — «Молодец, политик,
+   лидер и борец» (Владимир Путин), listing URL: https://rus.hitmotop.com/song/72438381
+2) Slava_KPSS_Pyrokinesis_-_RKN_74532024.mp3 — «РКН» (Слава КПСС, Pyrokinesis),
+   listing URL: https://rus.hitmotop.com/song/74532024
+
+These tracks were included by the project authors on their own initiative, without
+a separate agreement with the rights holders; attribution is provided in good faith.
+Copyright and related rights remain with the authors and/or their licensees. The
+files are bundled for use as in-game soundtrack assets; redistribution of the audio
+may require separate permission from the rights holders.
 
 ---
 
