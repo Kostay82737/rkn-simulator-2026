@@ -1,0 +1,9 @@
+{
+  "name": "rkn-simulator-deputat-2026",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Сатирический браузерный симулятор (статическая игра)",
+  "scripts": {
+    "start": "npx --yes serve -l 3000 ."
+  }
+}
