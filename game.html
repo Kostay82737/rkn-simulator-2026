@@ -11,9 +11,12 @@
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="site.css">
     <style>
+        body {
+            overflow-x: hidden;
+        }
         .game-frame-wrap {
-            width: min(1200px, 100%);
-            margin: 20px auto;
+            width: min(1200px, calc(100% - 24px));
+            margin: 14px auto;
             border: 1px solid rgba(51,65,85,.9);
             border-radius: 16px;
             overflow: hidden;
@@ -22,39 +25,73 @@
         }
         .game-frame {
             width: 100%;
-            height: min(88vh, 980px);
+            height: min(84vh, 920px);
             border: 0;
             display: block;
             background: #0c1929;
         }
         .game-page-title {
             width: min(1120px, 100%);
-            margin: 76px auto 8px;
-            padding: 0 12px;
+            margin: 16px auto 6px;
+            padding: 0 14px;
             color: #fef3c7;
             font-size: 1.1rem;
             font-weight: 800;
             letter-spacing: .04em;
         }
+        .game-page-sub {
+            width: min(1120px, 100%);
+            margin: 0 auto 8px;
+            padding: 0 14px;
+            color: #93c5fd;
+            font-size: 0.92rem;
+        }
+        @media (max-width: 900px) {
+            .game-frame {
+                height: 78vh;
+            }
+        }
     </style>
 </head>
 <body>
-<a href="index.html" class="game-back">← Назад</a>
+<header class="topbar">
+    <a href="index.html" class="brand">Русопельмешка31</a>
+    <nav class="nav" aria-label="Навигация по сайту">
+        <a href="index.html">Главная</a>
+        <a href="game.html">Игра</a>
+        <a href="aes-demo.html">АЭС демо</a>
+        <a href="faq.html">FAQ</a>
+        <a href="updates.html">Обновления</a>
+        <a href="contacts.html">Контакты</a>
+    </nav>
+</header>
 
 <div class="game-page-title">РКН Симулятор: Депутат 2026</div>
+<div class="game-page-sub">Игровой режим открыт в отдельном контейнере для стабильной работы и аккуратного интерфейса.</div>
 <div class="game-frame-wrap">
     <iframe class="game-frame" src="game-core.html" title="РКН Симулятор: Депутат 2026" loading="eager"></iframe>
 </div>
 
 <div class="game-ad-wrap">
     <!-- ad block -->
-    <div class="ad-placeholder">Место для рекламного блока РСЯ (страница игры)</div>
+    <div class="ad-placeholder"></div>
+    <div class="universe-block">
+        <strong>Игры в одной вселенной</strong>
+        <p style="margin:8px 0 0;">
+            Эта игра связана с демо-проектом «Симулятор АЭС» общим визуальным стилем, ироничным тоном и системным подходом к выбору решений.
+            Если хотите посмотреть соседний проект, откройте страницу второй игры в каталоге.
+        </p>
+        <p style="margin:8px 0 0;"><a href="aes-demo.html">Перейти к «Симулятор АЭС (демо)»</a></p>
+    </div>
 </div>
 
 <footer>
     <div class="footer-inner">
         <div class="footer-links">
             <a href="index.html">Главная</a>
+            <a href="aes-demo.html">АЭС демо</a>
+            <a href="faq.html">FAQ</a>
+            <a href="updates.html">Обновления</a>
             <a href="about.html">О проекте</a>
             <a href="contacts.html">Контакты</a>
             <a href="privacy.html">Политика конфиденциальности</a>

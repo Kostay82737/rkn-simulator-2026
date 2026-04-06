@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="720" viewBox="0 0 1280 720">
+  <defs>
+    <linearGradient id="g1" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0f172a"/>
+      <stop offset="100%" stop-color="#0c4a6e"/>
+    </linearGradient>
+  </defs>
+  <rect width="1280" height="720" fill="url(#g1)"/>
+  <rect x="48" y="42" width="1184" height="92" rx="18" fill="#0b2b6d" stroke="#ccac41"/>
+  <rect x="48" y="166" width="376" height="150" rx="14" fill="#1e293b" stroke="#334155"/>
+  <rect x="452" y="166" width="376" height="150" rx="14" fill="#1e293b" stroke="#334155"/>
+  <rect x="856" y="166" width="376" height="150" rx="14" fill="#1e293b" stroke="#334155"/>
+  <rect x="48" y="340" width="1184" height="332" rx="18" fill="#111827" stroke="#334155"/>
+  <text x="76" y="97" fill="#fde68a" font-family="Manrope,Segoe UI,sans-serif" font-size="34" font-weight="800">!:@8=H>B 1: 0=5;L ?>:070B5;59</text>
+  <text x="76" y="228" fill="#93c5fd" font-family="Manrope,Segoe UI,sans-serif" font-size="26">N465B</text>
+  <text x="480" y="228" fill="#6ee7b7" font-family="Manrope,Segoe UI,sans-serif" font-size="26">@>3@5AA</text>
+  <text x="884" y="228" fill="#fca5a5" font-family="Manrope,Segoe UI,sans-serif" font-size="26">>25@85</text>
+  <rect x="90" y="410" width="260" height="64" rx="12" fill="#ccac41"/>
+  <text x="123" y="452" fill="#111827" font-family="Manrope,Segoe UI,sans-serif" font-size="28" font-weight="800">K1@0BL >1J5:B</text>
+</svg>

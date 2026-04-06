@@ -182,12 +182,85 @@ main {
 .ad-placeholder {
     margin: 14px 0;
     padding: 16px;
+    min-height: 92px;
     text-align: center;
     border-style: dashed;
     border-color: rgba(56, 189, 248, 0.45);
     color: var(--muted);
     background: var(--panel-soft);
     font-size: 0.9rem;
+}
+.screens-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 12px;
+    margin-top: 12px;
+}
+.screen-card {
+    border-radius: 12px;
+    border: 1px solid rgba(51, 65, 85, 0.9);
+    background: linear-gradient(150deg, rgba(15,23,42,0.95), rgba(12,74,110,0.62));
+    min-height: 170px;
+    padding: 12px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.screen-card:nth-child(2) {
+    background: linear-gradient(150deg, rgba(17,24,39,0.95), rgba(30,64,175,0.62));
+}
+.screen-card:nth-child(3) {
+    background: linear-gradient(150deg, rgba(11,16,32,0.95), rgba(22,78,99,0.62));
+}
+.screen-card .screen-title {
+    color: #fde68a;
+    font-weight: 800;
+    font-size: 0.9rem;
+}
+.screen-card .screen-row {
+    height: 8px;
+    border-radius: 999px;
+    background: rgba(148, 163, 184, 0.45);
+    margin-top: 7px;
+}
+.screen-card .screen-row.gold { background: rgba(204,172,65,0.8); }
+.screen-card .screen-row.blue { background: rgba(56,189,248,0.8); }
+.screen-card .screen-row.green { background: rgba(52,211,153,0.8); }
+.screen-card .screen-caption {
+    color: #dbeafe;
+    font-size: 0.8rem;
+}
+.universe-block {
+    margin-top: 16px;
+    padding: 14px;
+    border-radius: 12px;
+    border: 1px solid rgba(52, 211, 153, 0.45);
+    background: rgba(16, 185, 129, 0.08);
+}
+.faq-item {
+    margin-bottom: 12px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid rgba(51, 65, 85, 0.7);
+}
+.faq-item:last-child {
+    margin-bottom: 0;
+    padding-bottom: 0;
+    border-bottom: none;
+}
+.updates-list {
+    display: grid;
+    gap: 12px;
+}
+.update-card {
+    border: 1px solid rgba(56, 189, 248, 0.35);
+    border-radius: 12px;
+    background: rgba(30, 41, 59, 0.66);
+    padding: 12px 14px;
+}
+.update-ver {
+    color: var(--gold);
+    font-weight: 800;
+    margin-bottom: 6px;
 }
 
 footer {
@@ -240,4 +313,5 @@ footer {
 
 @media (max-width: 900px) {
     .section-grid { grid-template-columns: 1fr; }
+    .screens-grid { grid-template-columns: 1fr; }
 }

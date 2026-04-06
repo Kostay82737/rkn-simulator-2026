@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="720" viewBox="0 0 1280 720">
+  <defs>
+    <linearGradient id="g3" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0b1020"/>
+      <stop offset="100%" stop-color="#164e63"/>
+    </linearGradient>
+  </defs>
+  <rect width="1280" height="720" fill="url(#g3)"/>
+  <rect x="56" y="56" width="1168" height="120" rx="20" fill="#0f172a" stroke="#ccac41"/>
+  <rect x="56" y="204" width="560" height="460" rx="18" fill="#1e293b" stroke="#334155"/>
+  <rect x="664" y="204" width="560" height="460" rx="18" fill="#1e293b" stroke="#334155"/>
+  <circle cx="252" cy="430" r="120" fill="#0ea5e9" opacity="0.22"/>
+  <circle cx="970" cy="430" r="120" fill="#10b981" opacity="0.22"/>
+  <rect x="744" y="520" width="400" height="72" rx="14" fill="#ccac41"/>
+  <text x="90" y="128" fill="#fde68a" font-family="Manrope,Segoe UI,sans-serif" font-size="34" font-weight="800">!:@8=H>B 3: @>3@5AA ?0@B88 8 AB8;L UI</text>
+  <text x="760" y="566" fill="#0f172a" font-family="Manrope,Segoe UI,sans-serif" font-size="28" font-weight="800">@>4>;68BL A5AA8N</text>
+</svg>

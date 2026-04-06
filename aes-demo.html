@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Симулятор АЭС (демо) — вторая игра в каталоге Русопельмешка31: описание, состав демо и планы развития.">
+    <meta name="theme-color" content="#0c1929">
+    <title>Симулятор АЭС (демо) — Русопельмешка31</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="site.css">
+    <style>
+        .aes-demo-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 10px;
+            margin-top: 10px;
+        }
+        .aes-stat {
+            border: 1px solid rgba(51, 65, 85, 0.9);
+            border-radius: 12px;
+            background: rgba(15, 23, 42, 0.7);
+            padding: 10px 12px;
+        }
+        .aes-stat .k { color: #94a3b8; font-size: 0.82rem; }
+        .aes-stat .v { color: #fef3c7; font-size: 1.2rem; font-weight: 800; }
+        .aes-actions {
+            margin-top: 12px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+        .aes-btn {
+            border: 1px solid rgba(204, 172, 65, 0.45);
+            background: rgba(0, 0, 0, 0.22);
+            color: #fde68a;
+            border-radius: 10px;
+            padding: 10px 12px;
+            font-weight: 700;
+            cursor: pointer;
+            font-family: inherit;
+        }
+        .aes-btn:hover { background: rgba(204, 172, 65, 0.12); }
+        .aes-log {
+            margin-top: 12px;
+            max-height: 180px;
+            overflow-y: auto;
+            border: 1px solid rgba(51, 65, 85, 0.85);
+            border-radius: 10px;
+            padding: 8px 10px;
+            background: rgba(2, 6, 23, 0.6);
+            color: #cbd5e1;
+            font-size: 0.9rem;
+        }
+        .aes-log-item { padding: 5px 0; border-bottom: 1px solid rgba(51,65,85,0.55); }
+        .aes-log-item:last-child { border-bottom: none; }
+        .aes-status {
+            margin-top: 10px;
+            font-weight: 800;
+            color: #93c5fd;
+        }
+        @media (max-width: 900px) {
+            .aes-demo-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+<div class="site-wrap">
+    <header class="topbar">
+        <a href="index.html" class="brand">Русопельмешка31</a>
+        <nav class="nav" aria-label="Навигация по сайту">
+            <a href="index.html">Главная</a>
+            <a href="game.html">Игра</a>
+            <a href="aes-demo.html">АЭС демо</a>
+            <a href="faq.html">FAQ</a>
+            <a href="updates.html">Обновления</a>
+            <a href="contacts.html">Контакты</a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <h1>Симулятор АЭС — демо</h1>
+            <p class="lead">
+                Это вторая игра каталога в формате концепт-демо. Проект делает акцент на управлении сложным объектом, где каждое решение влияет на стабильность,
+                нагрузку систем и ресурсную дисциплину. Мы публикуем эту страницу как полноценную часть сайта, чтобы демонстрация не выглядела пустой заготовкой.
+            </p>
+            <div class="actions">
+                <button class="btn-primary" type="button" id="aes-start-btn">Запустить демо</button>
+                <a class="btn-secondary" href="updates.html">Следить за обновлениями</a>
+            </div>
+        </section>
+
+        <section class="section-card">
+            <h2>Играбельная демо-версия</h2>
+            <p>
+                Мини-режим уже доступен: удерживайте станцию в стабильном режиме 12 ходов. Следите за мощностью, температурой и давлением.
+                Если температура или давление выйдут за пределы, сессия закончится аварией.
+            </p>
+            <div class="aes-demo-grid">
+                <div class="aes-stat"><div class="k">Ход</div><div class="v" id="aes-turn">0 / 12</div></div>
+                <div class="aes-stat"><div class="k">Мощность</div><div class="v" id="aes-power">50%</div></div>
+                <div class="aes-stat"><div class="k">Температура</div><div class="v" id="aes-temp">320°C</div></div>
+                <div class="aes-stat"><div class="k">Давление</div><div class="v" id="aes-pressure">140 атм</div></div>
+                <div class="aes-stat"><div class="k">Состояние</div><div class="v" id="aes-health">Стабильно</div></div>
+                <div class="aes-stat"><div class="k">Очки</div><div class="v" id="aes-score">0</div></div>
+            </div>
+            <div class="aes-actions">
+                <button type="button" class="aes-btn" data-action="power-up">Повысить мощность</button>
+                <button type="button" class="aes-btn" data-action="power-down">Снизить мощность</button>
+                <button type="button" class="aes-btn" data-action="cool">Охлаждение</button>
+                <button type="button" class="aes-btn" data-action="valve">Сброс давления</button>
+                <button type="button" class="aes-btn" data-action="inspect">Проверка систем</button>
+                <button type="button" class="aes-btn" id="aes-reset-btn">Новая сессия</button>
+            </div>
+            <div class="aes-status" id="aes-status">Нажмите «Запустить демо», чтобы начать смену.</div>
+            <div class="aes-log" id="aes-log"></div>
+        </section>
+
+        <section class="section-card" style="margin-top:16px;">
+            <h2>Описание игры</h2>
+            <p>
+                «Симулятор АЭС» задуман как сценарный симулятор с управлением узлами станции: распределение мощности, контроль аварийных сигналов и
+                выбор между безопасностью, темпом и эффективностью. Игра строится на понятном цикле: анализ состояния → действие → последствия.
+                При этом каждый шаг имеет накопительный эффект, поэтому стратегия в долгую важнее разовых быстрых решений.
+            </p>
+            <h2>Что уже есть в демо</h2>
+            <ul>
+                <li>Базовая концепция интерфейса и карта систем станции.</li>
+                <li>Набор тестовых игровых событий (пиковая нагрузка, сбои датчиков, ручное переключение режимов).</li>
+                <li>Каркас прогрессии с оценкой устойчивости и расхода ресурсов.</li>
+            </ul>
+            <h2>Что планируется</h2>
+            <ul>
+                <li>Расширенный набор сценариев и уровней сложности.</li>
+                <li>Подробные подсказки для новых игроков и обучающий режим.</li>
+                <li>Сохранение прогресса и таблица результатов по сессиям.</li>
+            </ul>
+        </section>
+
+        <section class="section-card" style="margin-top:16px;">
+            <h2>Игры в одной вселенной</h2>
+            <p>
+                «Симулятор АЭС» и основная игра сайта объединены общей дизайнерской системой и логикой «решение → последствия». Это позволяет поддерживать
+                единый стиль проекта, но оставлять каждой игре собственную механику и темп.
+            </p>
+            <p>
+                Если хотите сравнить подходы, откройте текущую игру и посмотрите, как отличается ритм прохождения:
+                <a href="game.html">перейти на страницу «Игра»</a>.
+            </p>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-inner">
+            <div class="footer-links">
+                <a href="index.html">Главная</a>
+                <a href="game.html">Игра</a>
+                <a href="faq.html">FAQ</a>
+                <a href="updates.html">Обновления</a>
+                <a href="about.html">О проекте</a>
+                <a href="contacts.html">Контакты</a>
+                <a href="privacy.html">Политика конфиденциальности</a>
+            </div>
+            <p>© <span data-year></span> Русопельмешка31.</p>
+        </div>
+    </footer>
+</div>
+<script>
+(() => {
+    const state = {
+        turn: 0,
+        maxTurns: 12,
+        power: 50,
+        temp: 320,
+        pressure: 140,
+        score: 0,
+        running: false,
+        over: false
+    };
+
+    const el = {
+        turn: document.getElementById('aes-turn'),
+        power: document.getElementById('aes-power'),
+        temp: document.getElementById('aes-temp'),
+        pressure: document.getElementById('aes-pressure'),
+        health: document.getElementById('aes-health'),
+        score: document.getElementById('aes-score'),
+        status: document.getElementById('aes-status'),
+        log: document.getElementById('aes-log'),
+        start: document.getElementById('aes-start-btn'),
+        reset: document.getElementById('aes-reset-btn'),
+        actionButtons: Array.from(document.querySelectorAll('.aes-btn[data-action]'))
+    };
+
+    function log(msg) {
+        const item = document.createElement('div');
+        item.className = 'aes-log-item';
+        item.textContent = msg;
+        el.log.prepend(item);
+    }
+
+    function healthText() {
+        if (state.temp > 470 || state.pressure > 245) return 'Критично';
+        if (state.temp > 420 || state.pressure > 210) return 'Напряженно';
+        return 'Стабильно';
+    }
+
+    function sync() {
+        el.turn.textContent = `${state.turn} / ${state.maxTurns}`;
+        el.power.textContent = `${state.power}%`;
+        el.temp.textContent = `${state.temp}°C`;
+        el.pressure.textContent = `${state.pressure} атм`;
+        el.health.textContent = healthText();
+        el.score.textContent = String(state.score);
+    }
+
+    function reset(startNow = false) {
+        state.turn = 0;
+        state.power = 50;
+        state.temp = 320;
+        state.pressure = 140;
+        state.score = 0;
+        state.running = !!startNow;
+        state.over = false;
+        el.log.innerHTML = '';
+        el.status.textContent = startNow ? 'Смена началась: стабилизируйте реактор.' : 'Нажмите «Запустить демо», чтобы начать смену.';
+        sync();
+    }
+
+    function finish(win, reason) {
+        state.over = true;
+        state.running = false;
+        el.status.textContent = win
+            ? `Смена завершена успешно. Итоговые очки: ${state.score}.`
+            : `Аварийный останов: ${reason}. Итоговые очки: ${state.score}.`;
+        log(win ? 'Смена завершена без аварий.' : `Авария: ${reason}.`);
+    }
+
+    function randomEvent() {
+        const r = Math.random();
+        if (r < 0.2) {
+            state.temp += 12;
+            state.pressure += 9;
+            log('Случайное событие: скачок нагрузки в контуре.');
+        } else if (r < 0.35) {
+            state.temp -= 8;
+            state.pressure -= 6;
+            log('Случайное событие: автоматика помогла стабилизации.');
+        }
+    }
+
+    function clamp() {
+        state.power = Math.max(20, Math.min(100, state.power));
+        state.temp = Math.max(260, Math.min(560, state.temp));
+        state.pressure = Math.max(90, Math.min(300, state.pressure));
+    }
+
+    function step(action) {
+        if (!state.running || state.over) return;
+
+        switch (action) {
+            case 'power-up':
+                state.power += 10;
+                state.temp += 18;
+                state.pressure += 12;
+                state.score += 8;
+                log('Мощность увеличена. Выработка выросла, нагрузка тоже.');
+                break;
+            case 'power-down':
+                state.power -= 10;
+                state.temp -= 10;
+                state.pressure -= 8;
+                state.score += 4;
+                log('Мощность снижена. Система стала спокойнее.');
+                break;
+            case 'cool':
+                state.temp -= 22;
+                state.pressure += 4;
+                state.score += 6;
+                log('Охлаждение активно. Температура падает.');
+                break;
+            case 'valve':
+                state.pressure -= 20;
+                state.temp += 4;
+                state.score += 6;
+                log('Клапан сброса сработал. Давление снижено.');
+                break;
+            case 'inspect':
+                state.temp -= 4;
+                state.pressure -= 4;
+                state.score += 5;
+                log('Проверка систем: мелкие отклонения исправлены.');
+                break;
+            default:
+                return;
+        }
+
+        state.turn += 1;
+        randomEvent();
+        clamp();
+
+        if (state.temp >= 520) return finish(false, 'перегрев активной зоны');
+        if (state.pressure >= 270) return finish(false, 'критическое давление');
+        if (state.turn >= state.maxTurns) return finish(true, 'смена выполнена');
+
+        sync();
+    }
+
+    el.start.addEventListener('click', () => {
+        reset(true);
+        log('Оператор заступил на смену.');
+    });
+    el.reset.addEventListener('click', () => reset(false));
+    el.actionButtons.forEach((btn) => {
+        btn.addEventListener('click', () => step(btn.dataset.action));
+    });
+
+    reset(false);
+})();
+</script>
+<script src="script.js"></script>
+</body>
+</html>
